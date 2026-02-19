@@ -1,0 +1,541 @@
+behaviors:
+  gewu:
+    checkpoint_interval: 400000
+    hyperparameters: {batch_size: 2048, beta: 0.005, beta_schedule: linear, buffer_size: 20480,
+      epsilon: 0.2, epsilon_schedule: linear, lambd: 0.95, learning_rate: 0.0003,
+      learning_rate_schedule: linear, num_epoch: 3}
+    keep_checkpoints: 5
+    max_steps: 20000000
+    network_settings: {deterministic: false, goal_conditioning_type: hyper, hidden_units: 512,
+      normalize: true, num_layers: 3, vis_encode_type: simple}
+    reward_signals:
+      extrinsic:
+        gamma: 0.995
+        network_settings: {deterministic: false, goal_conditioning_type: hyper, hidden_units: 128,
+          normalize: false, num_layers: 2, vis_encode_type: simple}
+        strength: 1.0
+    summary_freq: 20000
+    threaded: false
+    time_horizon: 1000
+    trainer_type: ppo
+
+environment_parameters:
+  lift_force:
+    curriculum:
+      - name: Lesson1 
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 0
+          threshold: 600
+        value: 70
+      - name: Lesson2  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 65
+      - name: Lesson3  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 60
+      - name: Lesson4  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 55
+      - name: Lesson5  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 50
+      - name: Lesson6  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 48
+      - name: Lesson7  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 45
+      - name: Lesson8  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 40
+      - name: Lesson9  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 35
+      - name: Lesson10  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 30
+      - name: Lesson11  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 25
+      - name: Lesson12  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 550
+        value: 20
+      - name: Lesson13  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 15
+      - name: Lesson14  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 10
+      - name: Lesson15  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 5
+      - name: Lesson16  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 0
+      - name: Lesson17    
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 70
+      - name: Lesson18  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 65
+      - name: Lesson19  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 60
+      - name: Lesson20  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 55
+      - name: Lesson21
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 50
+      - name: Lesson22  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 48
+      - name: Lesson23  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 45
+      - name: Lesson24  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 40
+      - name: Lesson25  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 35
+      - name: Lesson26  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 30
+      - name: Lesson27 
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 25
+      - name: Lesson28 
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 550
+        value: 20
+      - name: Lesson29 
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 15
+      - name: Lesson30 
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 10
+      - name: Lesson31  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 5
+      - name: Lesson32  
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 0
+
+  pose_random_prob:
+    curriculum:
+      - name: Lesson1
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 0
+          threshold: 600
+        value: 1
+      - name: Lesson2
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson3
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson4
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson5
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson6
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson7
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson8
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson9
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson10
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson11
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 1
+      - name: Lesson12
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 550
+        value: 1
+      - name: Lesson13
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 1
+      - name: Lesson14
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 1
+      - name: Lesson15
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 1
+      - name: Lesson16
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 1
+      - name: Lesson17
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson18
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson19
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson20
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson21
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson22
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson23
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson24
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson25
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson26
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson27
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 600
+        value: 2
+      - name: Lesson28
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 550
+        value: 2
+      - name: Lesson29
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 2
+      - name: Lesson30
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 2
+      - name: Lesson31
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 2
+      - name: Lesson32
+        completion_criteria:
+          measure: reward
+          behavior: gewu
+          signal_smoothing: true
+          min_lesson_length: 100
+          threshold: 500
+        value: 2
+
+        
